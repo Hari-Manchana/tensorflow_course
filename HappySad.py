@@ -20,7 +20,7 @@ class myCallback(tf.keras.callbacks.Callback):
       print("\n DESIRED_ACCURACY has been REACHED!")
       self.model.stop_training = True
 
-callbacks = myCallback()
+acc_callback = myCallback()
 
 # This Code Block should Define and Compile the Model
 model = tf.keras.models.Sequential([
@@ -67,7 +67,7 @@ history = model.fit_generator(
       steps_per_epoch = 2,
       epochs = 15,
       verbose =1,
-      callbacks=[callbacks])
+      callbacks=[acc_callback])
     
 # Expected output: "Reached 99.9% accuracy so cancelling training!""
 
